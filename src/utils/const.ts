@@ -28,7 +28,7 @@ const MAP_LAYER_LIST = [
 ];
 
 // styling: set to `true` if you want dash-line route
-const USE_DASH_LINE = true;
+const USE_DASH_LINE = false;
 // styling: route line opacity: [0, 1]
 const LINE_OPACITY = 0.4;
 // styling: map height - responsive design
@@ -41,15 +41,15 @@ const ROAD_LABEL_DISPLAY = true;
 const PRIVACY_MODE = false;
 // updated on 2024/11/17: lights are turned off by default
 //set to `false` if you want to make light off as default, only effect when `PRIVACY_MODE` = false
-const LIGHTS_ON = false;
+const LIGHTS_ON = true;
 //set to `true` if you want to show the 'Elevation Gain' column
 const SHOW_ELEVATION_GAIN = false;
 // richer title for the activity types (like garmin style)
-const RICH_TITLE = false;
+const RICH_TITLE = true;
 
 // IF you are outside China please make sure IS_CHINESE = false
 const IS_CHINESE = true;
-const USE_ANIMATION_FOR_GRID = false;
+const USE_ANIMATION_FOR_GRID = true;
 const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
   const yearStr = year === 'Total' ? '所有' : ` ${year} `;
   return `记录自己跑步 ${yearLength} 年了，下面列表展示的是${yearStr}的数据`;
@@ -176,8 +176,8 @@ export const PROVINCE_FILL_COLOR = '#47b8e0';
 export const COUNTRY_FILL_COLOR = dark_vanilla;
 
 // Static color constants
-export const RUN_COLOR_LIGHT = '#47b8e0';
-export const RUN_COLOR_DARK = MAIN_COLOR;
+export const RUN_COLOR_LIGHT = '#C71585';
+export const RUN_COLOR_DARK = '#ff1dac';
 
 // Single run animation colors
 export const SINGLE_RUN_COLOR_LIGHT = '#52c41a'; // Green for light theme
@@ -222,21 +222,20 @@ export const CYCLING_COLOR = 'rgb(51,255,87)';
 export const HIKING_COLOR = 'rgb(151,51,255)';
 export const WALKING_COLOR = HIKING_COLOR;
 export const SWIMMING_COLOR = 'rgb(255,51,51)';
-export const INDOOR_COLOR = '#8899aa';
 
 // map tiles vendor, maptiler or mapbox or stadiamaps
 // if you want to use maptiler, set the access token in MAP_TILE_ACCESS_TOKEN
-export const MAP_TILE_VENDOR = 'mapcn';
+export const MAP_TILE_VENDOR = 'maptiler';
 
 // map tiles style name, see MAP_TILE_STYLES for more details
-export const MAP_TILE_STYLE_LIGHT = 'osm-bright';
-export const MAP_TILE_STYLE_DARK = 'dark-matter';
+export const MAP_TILE_STYLE_LIGHT = 'dataviz-blueLine';
+export const MAP_TILE_STYLE_DARK = 'backdrop-dark-3D';
 
 // access token. you can apply a new one, it's free.
 // maptiler: Gt5R0jT8tuIYxW6sNrAg | sign up at https://cloud.maptiler.com/auth/widget
 // stadiamaps: 8a769c5a-9125-4936-bdcf-a6b90cb5d0a4 | sign up at https://client.stadiamaps.com/signup/
 // mapcn: empty
-export const MAP_TILE_ACCESS_TOKEN = '';
+export const MAP_TILE_ACCESS_TOKEN = 'zsyILl2XTNXD1caH8NQf';
 
 export const MAP_TILE_STYLES = {
   mapcn: {
@@ -258,25 +257,35 @@ export const MAP_TILE_STYLES = {
     'dark-matter': 'https://tiles.openfreemap.org/styles/dark',
   },
   maptiler: {
-    'dataviz-light': 'https://api.maptiler.com/maps/dataviz/style.json?key=',
+    'dataviz-light': 'https://api.maptiler.com/maps/dataviz-v4/style.json?key=',
+    'dataviz-blueLine':
+      'https://api.maptiler.com/maps/019cc1f2-1c5f-7025-8b79-6cc663ffb443/style.json?key=',
+    'backdrop-3D':
+      'https://api.maptiler.com/maps/019cc21a-109c-7408-8d4e-31d8d06dc326/style.json?key=',
+    'backdrop-dark-3D':
+      'https://api.maptiler.com/maps/019cc225-be32-73a2-aa30-9664841e1c8a/style.json?key=',
     'dataviz-dark':
       'https://api.maptiler.com/maps/dataviz-dark/style.json?key=',
     'basic-light': 'https://api.maptiler.com/maps/basic-v2/style.json?key=',
     'basic-dark': 'https://api.maptiler.com/maps/basic-v2-dark/style.json?key=',
-    'streets-light': 'https://api.maptiler.com/maps/streets-v2/style.json?key=',
+    'streets-light': 'https://api.maptiler.com/maps/streets-v4/style.json?key=',
     'streets-dark':
-      'https://api.maptiler.com/maps/streets-v2-dark/style.json?key=',
-    'outdoor-light': 'https://api.maptiler.com/maps/outdoor-v2/style.json?key=',
+      'https://api.maptiler.com/maps/streets-v4-dark/style.json?key=',
+    'outdoor-light': 'https://api.maptiler.com/maps/outdoor-v4/style.json?key=',
     'outdoor-dark':
-      'https://api.maptiler.com/maps/outdoor-v2-dark/style.json?key=',
+      'https://api.maptiler.com/maps/outdoor-v4-dark/style.json?key=',
     'bright-light': 'https://api.maptiler.com/maps/bright-v2/style.json?key=',
     'bright-dark':
       'https://api.maptiler.com/maps/bright-v2-dark/style.json?key=',
-    'topo-light': 'https://api.maptiler.com/maps/topo-v2/style.json?key=',
+    'topo-light': 'https://api.maptiler.com/maps/topo-v4/style.json?key=',
     'topo-dark': 'https://api.maptiler.com/maps/topo-v2-dark/style.json?key=',
-    'winter-light': 'https://api.maptiler.com/maps/winter-v2/style.json?key=',
+    'winter-light': 'https://api.maptiler.com/maps/winter-v4/style.json?key=',
     'winter-dark':
-      'https://api.maptiler.com/maps/winter-v2-dark/style.json?key=',
+      'https://api.maptiler.com/maps/winter-v4-dark/style.json?key=',
+    'backdrop-light':
+      'https://api.maptiler.com/maps/backdrop-v4-light/style.json?key=',
+    'backdrop-dark':
+      'https://api.maptiler.com/maps/backdrop-v4-dark/style.json?key=',
     hybrid: 'https://api.maptiler.com/maps/hybrid/style.json?key=',
   },
 
@@ -303,13 +312,6 @@ export const MAP_TILE_STYLES = {
   default: 'mapbox://styles/mapbox/dark-v10',
 };
 
-export const getMapTileVendorStyles = (
-  vendor: string
-): Record<string, string> | undefined => {
-  const styles = MAP_TILE_STYLES[vendor as keyof typeof MAP_TILE_STYLES];
-  return typeof styles === 'object' ? styles : undefined;
-};
-
 // Configuration validation
 if (typeof window !== 'undefined') {
   // Validate token requirements
@@ -334,7 +336,7 @@ if (typeof window !== 'undefined') {
   }
 
   // Validate style matches vendor
-  const vendorStyles = getMapTileVendorStyles(MAP_TILE_VENDOR);
+  const vendorStyles = (MAP_TILE_STYLES as any)[MAP_TILE_VENDOR];
   if (vendorStyles && !vendorStyles[MAP_TILE_STYLE_LIGHT]) {
     console.error(
       `❌ Style "${MAP_TILE_STYLE_LIGHT}" is not valid for vendor "${MAP_TILE_VENDOR}"\n` +
