@@ -569,7 +569,14 @@ const RunMap = ({
       <FullscreenControl style={fullscreenButton} />
       {!PRIVACY_MODE && <LightsControl setLights={setLights} lights={lights} />}
       <NavigationControl
+        showCompass={true}
+        showZoom={false}
+        position={'top-right'}
+        style={{ opacity: 0.3, marginTop: '105px' }}
+      />
+      <NavigationControl
         showCompass={false}
+        showZoom={true}
         position={'bottom-right'}
         style={{ opacity: 0.3 }}
       />
