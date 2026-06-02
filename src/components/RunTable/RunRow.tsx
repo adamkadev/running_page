@@ -44,7 +44,11 @@ const RunRow = ({
       key={run.start_date_local}
       onClick={handleClick}
     >
-      <td>{titleForRun(run)}</td>
+      <td>
+        <div className={styles.runTitle} title={titleForRun(run)}>
+          {titleForRun(run)}
+        </div>
+      </td>
       <td>{distance}</td>
       {SHOW_ELEVATION_GAIN && (
         <td>{((run.elevation_gain ?? 0) * M_TO_ELEV).toFixed(1)}</td>

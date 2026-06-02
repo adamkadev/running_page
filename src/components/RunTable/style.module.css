@@ -108,3 +108,18 @@
 .runDate {
   color: var(--color-run-date);
 }
+
+.runTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 30ch; /* limit title width while keeping responsive characters count */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 768px) {
+  .runTitle {
+    max-width: 24ch;
+  }
+}
